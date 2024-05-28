@@ -45,3 +45,5 @@ do {
 
 alert("Compraste "+cantidadTotal+" Juegos con un precio de $"+precioTotal+"!")
 alert("Felicidades realizaste tu compra con exito!")
+
+//done
