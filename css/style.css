@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.form-group {
+    margin-bottom: 10px;
+}
+.productos-lista {
+    margin-top: 20px;
+}
+.producto-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.producto-item button {
+    margin-top: 5px;
+}
+.error {
+    color: red;
+    margin-top: 5px;
+}

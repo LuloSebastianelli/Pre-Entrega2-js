@@ -3,11 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda en Línea</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Filtrador de Productos</title>
 </head>
 <body>
-    <h1>Tienda en Línea</h1>
+    <h1>Filtrador de Productos</h1>
+    <div>
+        <div class="form-group">
+            <label for="id">ID del Producto:</label>
+            <input type="text" id="id">
+            <span id="idError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre del Producto:</label>
+            <input type="text" id="nombre">
+            <span id="nombreError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="categoria">Categoría:</label>
+            <input type="text" id="categoria">
+            <span id="categoriaError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio">
+            <span id="precioError" class="error"></span>
+        </div>
+        <button onclick="agregarProducto()">Agregar Producto</button>
+        <button onclick="limpiarFormulario()">Limpiar Formulario</button>
+    </div>
 
-    <script src="js/main.js"></script>
+    <div class="form-group">
+        <label for="filtroCategoria">Filtrar por Categoría:</label>
+        <input type="text" id="filtroCategoria" oninput="filtrarProductos()">
+    </div>
+
+    <h2>Lista de Productos</h2>
+    <div id="productosLista" class="productos-lista"></div>
+
+    <script src="js/main2.js"></script>
 </body>
 </html>
