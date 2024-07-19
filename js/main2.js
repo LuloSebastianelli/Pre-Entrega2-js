@@ -1,5 +1,26 @@
 let productos = JSON.parse(localStorage.getItem('productos')) || [];
 
+async function cargarProductos() {
+    try {
+        const response = await fetch('productos.json');
+        if (!response.ok) {
+            throw new Error('Error al cargar los productos.');
+        }
+        const data = await response.json();
+
+        // Filtrar productos para no agregar duplicados
+        const nuevosProductos = data.filter(producto => 
+            !productos.some(p => p.id === producto.id)
+        );
+
+        productos = [...productos, ...nuevosProductos];
+        guardarProductos();
+        mostrarProductos(productos);
+    } catch (error) {
+        console.error('Hubo un problema con la carga de productos:', error);
+    }
+}
+
 function guardarProductos() {
     localStorage.setItem('productos', JSON.stringify(productos));
 }
@@ -81,5 +102,5 @@ function limpiarErrores() {
     document.querySelectorAll('.error').forEach(span => span.innerText = '');
 }
 
-// Inicializar la lista de productos al cargar la página
-mostrarProductos(productos);
+// Cargar productos al iniciar la página
+cargarProductos();
